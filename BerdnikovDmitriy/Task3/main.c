@@ -1,17 +1,21 @@
 #include <stdio.h>
-
-void other() {
-    printf("Funny:)\n");
+#include <math.h>
+#include <stdlib.h>
+double sum_series(int n)
+{
+    double sum = 0;
+    double del = 0;
+    for (int i=1; i<n+1;i++){
+        del = pow(-1,i)/i;
+        sum +=del;
+    }
+    return sum;
 }
 
-void input() {
-    char story[20];
-    printf("Tell me your story\n");
-    scanf("%s", story);
-    printf("Nice story!");
-}
-
-int main() {
-    input();
+int main()
+{
+    int n;
+    scanf("%d", &n);
+    printf("%.17f\n", sum_series(n));
     return 0;
 }
